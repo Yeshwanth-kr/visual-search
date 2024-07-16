@@ -21,8 +21,8 @@ export default defineConfig({
                 'apple-touch-icon.png',
             ],
             manifest: {
-                name: 'Algo Search',
-                short_name: 'Algo Search',
+                name: 'Visual Search',
+                short_name: 'Visual Search',
                 "start_url": "/",
                 "scope": "/",
                 description:
