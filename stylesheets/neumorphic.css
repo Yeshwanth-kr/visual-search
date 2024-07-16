@@ -1,0 +1,279 @@
+:root {
+    /*--light Theme--*/
+    --main-color: #fd8421;
+    --main-color-light: #f39b53;
+    --main-color-shadow: #d16a15;
+    --accent-color: #fd8421;
+
+
+    --hole-neutral: #aeaecb;
+    --hole-light: #cbcbdb;
+    --hole-shadow: #9595b0;
+    --thumb-shine: rgba(255, 255, 255, 0.4);
+
+    --l-neutral: #dedeed;
+    --l-light: #f1f1f7;
+    --l-shadow: #aaa4c4;
+    --l-object: #8f8fb5;
+
+    /*--Dark Theme--*/
+/* 
+    --main-color: #79e3b6;
+    --main-color-light: #a8f7d6;
+    --main-color-shadow: #5cb891;
+    --accent-color: #79e3b6;
+    
+    --hole-neutral: #aeaecb;
+	--hole-light: #cbcbdb;
+	--hole-shadow: #9595b0;
+    --thumb-shine:rgba(190, 177, 177, 0.4);
+    
+	--l-neutral: #303040;
+	--l-light: #424255;
+	--l-shadow: #151322;
+	--l-object: #9d9da7; */
+}
+
+.container {
+    width: calc(100vw - 200px);
+    height: calc(100vh - 200px);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: wrap;
+    padding: 100px;
+}
+
+/*---Button---*/
+
+.neu-button {
+    width: 2.5em;
+    height: 2.5em;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.neu-button:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 32px;
+    filter: blur(1.5px);
+    position: absolute;
+    transition-duration: 300ms;
+    background: var(--l-neutral);
+    box-shadow: 7px 7px 15px var(--l-shadow), -7px -7px 15px var(--l-light);
+}
+.neu-button:hover:before {
+    filter: blur(1.5px);
+    box-shadow: -4px -4px 10px var(--l-shadow), 4px 4px 10px var(--l-light);
+}
+.neu-button > * {
+    transition-duration: 300ms;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    filter: blur(0);
+    -webkit-filter: blur(0);
+    transform: translateZ(0);
+    color: var(--l-object);
+}
+.neu-button:hover i {
+    color: var(--main-color) !important;
+}
+.neu-button:active > * {
+    color: var(--main-color) !important;
+}
+#theme:hover i{
+    color: var(--accent-color) !important;
+}
+
+/* ---input range--- */
+.slider-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.slider-container > .label-text {
+    margin-right: 20px;
+}
+#speed-slider {
+    direction: rtl;
+}
+.neu-input-container {
+    position: relative;
+    height: 30px;
+    flex: 1;
+    padding: 0 4px;
+}
+.neu-input-container:before {
+    cursor: pointer;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    left: 0px;
+    border-radius: 26px;
+    filter: blur(1.5px);
+    box-shadow: -4px -4px 10px var(--l-shadow), 4px 4px 10px var(--l-light);
+}
+
+input[type='range'] {
+    /* To remove default styles appplied by webkit browsers */
+    -webkit-appearance: none;
+    margin: 0;
+    width: 100%;
+    height: 30px;
+    background: transparent;
+    position: relative;
+}
+input[type='range']:focus {
+    /* To remove default (mostly blue) outline appplied by browsers on :focus */
+    outline: 0;
+}
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    margin: 4px 0;
+    background: var(--main-color);
+    border-radius: 100%;
+    box-shadow: inset 0.8em 0.8em 5px -7px var(--thumb-shine),
+        inset -0.4em -0.4em 10px -3px rgba(0, 0, 0, 0.2),
+        0.7em 0.5em 7px -0.5em rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+/*All the same stuff for firefox */
+input[type='range']::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    background: var(--main-color);
+    border-radius: 100%;
+    box-shadow: inset 0.8em 0.8em 5px -7px var(--thumb-shine),
+        inset -0.4em -0.4em 10px -3px rgba(0, 0, 0, 0.2),
+        0.7em 0.5em 7px -0.5em rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    border: 0;
+}
+
+/*---toggle---*/
+.toggle {
+    display: flex;
+    align-items: center;
+}
+.toggle > [type='checkbox'] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    visibility: hidden;
+}
+.toggle > [type='checkbox']:checked + label,
+.toggle > [type='checkbox']:not(:checked) + label {
+    content: '';
+    width: 2.5em;
+    height: 1.5em;
+    margin: 2px 16px 0;
+    position: relative;
+    cursor: pointer;
+}
+.toggle > [type='checkbox']:checked + label:before,
+.toggle > [type='checkbox']:not(:checked) + label:before {
+    content: '';
+    width: 49px;
+    height: 24px;
+    filter: blur(0.6px);    
+    -webkit-filter: blur(0);
+    transform: translateZ(0);
+    position: absolute;
+    border-radius: 1em;
+    background: var(--hole-neutral);
+    box-shadow: 0 0 0 1.4px var(--l-light), 7px 7px 15px var(--l-shadow),
+        -7px -7px 15px var(--l-light), inset 3px 3px 13px var(--hole-shadow),
+        inset -3px -3px 10px var(--hole-light);
+    transition: all 150ms;
+}
+.toggle > [type='checkbox']:checked + label:before {
+    background: var(--main-color);
+    box-shadow: 0 0 0 1.4px var(--l-light), 7px 7px 15px var(--l-shadow),
+        -7px -7px 15px var(--l-light),
+        inset 3px 3px 13px var(--main-color-shadow),
+        inset -3px -3px 10px var(--main-color-light);
+}
+.toggle > [type='checkbox']:checked + label:after,
+.toggle > [type='checkbox']:not(:checked) + label:after {
+    content: '';
+    width: 20px;
+    height: 20px;
+    margin: 2px 2px;
+    filter: blur(0.3px);
+    -webkit-filter: blur(0);
+    transform: translateZ(0);
+    position: absolute;
+    border-radius: 1em;
+    background: var(--l-neutral);
+    left: 0;
+    box-shadow: inset 0 0 6px 1px var(--l-light),
+        inset -2px -2px 6px var(--l-shadow);
+    transition: all 200ms;
+}
+.toggle > [type='checkbox']:checked + label:after {
+    left: 25px;
+}
+
+/*---Select---*/
+
+.select {
+    height: 2.5em;
+    width: 98%;
+    position: relative;
+}
+.select:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 2em;
+    filter: blur(1px);
+    position: absolute;
+    background: var(--l-neutral);
+    box-shadow: 7px 7px 15px var(--l-shadow), -7px -7px 15px var(--l-light);
+}
+.select select {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 100%;
+    padding: 0 0.6em;
+    background: transparent;
+    border: 0;
+    position: absolute;
+    font-size: 1em;
+    color: var(--l-object);
+    outline: none;
+    cursor: pointer !important;
+}
+.select .neu-button {
+    width: 1.8em;
+    height: 1.8em;
+    margin: 0.4em;
+    right: 0;
+    position: absolute;
+    pointer-events: none;
+}
+.select .neu-button i {
+    margin-top: 0.15em;
+    font-size: 1em;
+}
+.select:hover .neu-button:before,
+.select select:focus ~ .neu-button:before {
+    filter: blur(1.5px);
+    box-shadow: -4px -4px 10px var(--l-shadow), 4px 4px 10px var(--l-light);
+}
+.select:hover .neu-button i,
+.select select:focus ~ .neu-button i {
+    color: var(--main-color) !important;
+}

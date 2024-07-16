@@ -1,0 +1,204 @@
+html,
+body,
+main {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-size: 18px;
+    background: var(--l-neutral);
+    color: var(--l-object);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: none;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.selection-area {
+    background: rgba(46, 115, 252, 0.11);
+    border: 2px solid rgba(98, 155, 255, 0.81);
+    border-radius: 0.1em;
+}
+
+
+#action-container {
+    margin: 16px 0;
+    display: grid;
+    width: 95%;
+}
+#action-container > .label {
+    grid-area: toggle;
+}
+#action-container > .select {
+    grid-area: select;
+    justify-self: center;
+}
+#speed {
+    grid-area: speed;
+}
+#size {
+    grid-area: size;
+}
+#theme {
+    grid-area: theme;
+    justify-self: center;
+}
+#reset {
+    grid-area: reset;
+    justify-self: center;
+}
+#search {
+    grid-area: search;
+    justify-self: end;
+}
+#instructions {
+    color: var(--main-color);
+    text-align: center;
+    align-self: center;
+    grid-area: instructions;
+    font-weight: 100;
+}
+#heuristic {
+    grid-area: heuristic;
+    justify-self: end;
+    font-size: 1.2em;
+}
+#grid-container {
+    background: var(--l-neutral);
+    display: grid;
+    place-items: center;
+    flex: 1;
+    border-radius: 12px;
+    width: 95%;
+    padding: 8px;
+    user-select: none;
+    margin-bottom: 28px;
+    box-shadow: inset 4px 4px 16px -7px var(--l-light),
+        inset -7px -7px 9px -6px var(--l-shadow),
+        6px 6px 12px 1px var(--l-shadow);
+}
+
+table {
+    border-collapse: collapse;
+    border-radius: 12px;
+    user-select: none;
+}
+
+td {
+    border: 1px solid #a2b1ca;
+    -webkit-transition: background-color 0.3s ease-out;
+    -moz-transition: background-color 0.3s ease-out;
+    -o-transition: background-color 0.3s ease-out;
+    transition: background-color 0.3s ease-outne;
+    user-select: none;
+}
+
+table td:first-child {
+    border-left: none;
+}
+table td:last-child {
+    border-right: none;
+}
+table tr:first-child td {
+    border-top: none;
+}
+table tr:last-child td {
+    border-bottom: none;
+}
+
+table tr:first-child td:first-child {
+    border-top-left-radius: 8px;
+}
+table tr:first-child td:last-child {
+    border-top-right-radius: 8px;
+}
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 8px;
+}
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 8px;
+}
+
+td:hover {
+    background-color: #a29ff5 !important;
+}
+
+@media only screen and (max-width: 645px) {
+    #action-container {
+        grid-template-areas:
+            'instructions instructions theme reset'
+            'toggle toggle search search'
+            'speed speed speed speed'
+            'size size size size'
+            'select select select select'
+            'heuristic heuristic heuristic heuristic';
+        gap: 20px;
+        width: 85%;
+    }
+    #reset {
+        justify-self: end;
+    }
+    #instructions {
+        justify-self: center;
+    }
+    #heuristic {
+        justify-self: stretch;
+    }
+    #heuristic>.label-text {
+        margin-right: 0;
+    }
+    #heuristic>.neu-input-container{
+        margin-left: 12px;
+    }
+    #grid-container {
+        width: 85%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 645px) {
+    #action-container {
+        grid-template-areas:
+            'toggle instructions instructions reset theme search'
+            'speed speed speed size size size'
+            'select select select heuristic heuristic heuristic';
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        gap: 20px;
+        width: 93%;
+    }
+    #instructions {
+        justify-self: center;
+    }
+    #grid-container {
+        width: 93%;
+    }
+    #heuristic {
+        justify-self: stretch;
+    }
+}
+@media only screen and (min-width: 910px) {
+    #action-container {
+        grid-template-areas:
+            'toggle select select heuristic heuristic reset theme search'
+            'speed speed speed instructions instructions size size size';
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        gap: 20px;
+        width: 93%;
+    }
+    #instructions {
+        justify-self: center;
+    }
+    #grid-container {
+        width: 93%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up)
+@media only screen and (min-width: 1200px) {
+    ...;
+} */

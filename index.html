@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Algo Search</title>
+        <meta name="description" content="Your app description" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link
+            rel="alternate icon"
+            href="/favicon.ico"
+            type="image/png"
+            sizes="16x16"
+        />
+        <link
+            rel="apple-touch-icon"
+            href="/apple-touch-icon.png"
+            sizes="180x180"
+        />
+        <link rel="mask-icon" href="/favicon.ico" />
+        <meta name="theme-color" content="#303040" />
+    </head>
+    <body>
+        <main>
+            <div id="action-container">
+                <div class="toggle">
+                    <span>Start</span>
+                    <input type="checkbox" name="check" id="toggle" />
+                    <label for="toggle"> </label>
+                    <span>Goal</span>
+                </div>
+                <div class="select">
+                    <select name="select" id="select">
+                        <option value="breadthFirstSearch">
+                            Breadth First Search
+                        </option>
+                        <option value="depthFirstSearch">
+                            Depth First Search
+                        </option>
+                        <option value="iterativeDeepeningSearch">
+                            Iterative Deepening Search
+                        </option>
+                        <option value="uniformCostSearch">Uniform Cost</option>
+                        <option value="greedySearch">Greedy Search</option>
+                        <option value="aStarSearch">A* Search</option>
+                        <option value="idaStarSearch">IDA* Search</option>
+                    </select>
+                    <div class="neu-button">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div id="speed" class="slider-container">
+                    <div class="label-text">Speed</div>
+                    <div class="neu-input-container">
+                        <input type="range" id="speed-slider" max="250" />
+                    </div>
+                </div>
+                <div id="size" class="slider-container">
+                    <div class="label-text">Grid Size</div>
+                    <div class="neu-input-container">
+                        <input
+                            class="neu-input"
+                            type="range"
+                            id="size-slider"
+                            min="10"
+                            max="50"
+                            value="30"
+                        />
+                    </div>
+                </div>
+
+                <div class="neu-button" id="theme">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="neu-button" id="reset">
+                    <i class="fas fa-undo"></i>
+                </div>
+
+                <div class="neu-button" style="width: 6em" id="search">
+                    <span>Search</span>
+                </div>
+                <div id="instructions">
+                    Shift ⇧ hover <strong>OR</strong> click
+                    <i class="fas fa-mouse"></i> drag to block path
+                </div>
+                <div
+                    id="heuristic"
+                    class="slider-container"
+                    style="display: none"
+                >
+                    <div class="label-text">f = g +</div>
+                    <div class="neu-input-container">
+                        <input type="range" id="w-slider" />
+                    </div>
+                    <div class="label-text">&nbsp;h</div>
+                </div>
+            </div>
+            <div id="grid-container"></div>
+        </main>
+        <script
+            src="https://kit.fontawesome.com/293c5afe2d.js"
+            crossorigin="anonymous"
+        ></script>
+        <script type="module" src="/main.js"></script>
+    </body>
+</html>
